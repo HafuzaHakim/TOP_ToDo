@@ -3,7 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To Do Tracker</title>
+    <title>Task Tracker</title>
+    <script
+      src="https://kit.fontawesome.com/7a916139ac.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Task Tracker</h1>
+    </header>
+
+    <aside>
+      <ul class="filters">
+        <li class="all">
+          <i class="fa-solid fa-clipboard-list"></i><span>All</span>
+        </li>
+        <li class="important">
+          <i class="fa-solid fa-star"></i><span>Important</span>
+        </li>
+        <li class="completed">
+          <i class="fa-solid fa-check-double"></i><span>Completed</span>
+        </li>
+        <li class="overdue">
+          <i class="fa-solid fa-circle-exclamation"></i><span>Overdue</span>
+        </li>
+      </ul>
+
+      <div class="project">
+        <div class="project_header">
+          <h2>Project</h2>
+          <button class="add_project">+</button>
+        </div>
+        <ul class="project_list"></ul>
+      </div>
+    </aside>
+
+    <main></main>
+
+    <footer>
+      <p>Built By Hafuza Hakim</p>
+    </footer>
+  </body>
 </html>
