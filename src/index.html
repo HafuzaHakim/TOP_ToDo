@@ -44,5 +44,79 @@
     <footer>
       <p>Built By Hafuza Hakim</p>
     </footer>
+
+    <div class="project_wrapper hidden">
+      <div class="project_form">
+        <form action="#">
+          <div class="form_header">
+            <span>New Project</span>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="form_main">
+            <div class="label_wrapper">
+              <label for="title">Project Title</label>
+              <input type="text" id="title" name="title" />
+            </div>
+            <div class="label_wrapper">
+              <label for="icon">Project Icon</label>
+              <div class="icon_choices">
+                <div class="icon_wrapper">
+                  <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa-solid fa-dumbbell"></i>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa-solid fa-car-side"></i>
+                </div>
+                <div class="icon_wrapper">
+                  <i class="fa-solid fa-pen"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form_footer">
+            <button class="form_cancel">Cancel</button>
+            <button type="submit" class="form_submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="todo_wrapper hidden">
+      <div class="todo_form">
+        <form action="#">
+          <div class="form_header">
+            <span>New Task</span>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="form_main">
+            <div class="label_wrapper">
+              <label for="task">Task Name</label>
+              <input type="text" id="task" name="task" required />
+            </div>
+            <div class="label_wrapper">
+              <label for="priority">Task Priority</label>
+              <select name="priority" id="priority" required>
+                <option value disabled selected>Select priority</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="label_wrapper">
+              <label for="date">Due Date</label>
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+          <div class="form_footer">
+            <button class="form_cancel">Cancel</button>
+            <button type="submit" class="form_submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
