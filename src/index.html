@@ -17,16 +17,20 @@
     <aside>
       <ul class="filters">
         <li class="all">
-          <i class="fa-solid fa-clipboard-list"></i><span>All</span>
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span>All</span>
         </li>
         <li class="important">
-          <i class="fa-solid fa-star"></i><span>Important</span>
+          <i class="fa-solid fa-star"></i>
+          <span>Important</span>
         </li>
         <li class="completed">
-          <i class="fa-solid fa-check-double"></i><span>Completed</span>
+          <i class="fa-solid fa-check-double"></i>
+          <span>Completed</span>
         </li>
         <li class="overdue">
-          <i class="fa-solid fa-circle-exclamation"></i><span>Overdue</span>
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>Overdue</span>
         </li>
       </ul>
 
@@ -47,7 +51,7 @@
 
     <div class="project_wrapper hidden">
       <div class="project_form">
-        <form action="#">
+        <form action="#" id="project_form">
           <div class="form_header">
             <span>New Project</span>
             <i class="fa-solid fa-xmark"></i>
@@ -55,7 +59,7 @@
           <div class="form_main">
             <div class="label_wrapper">
               <label for="title">Project Title</label>
-              <input type="text" id="title" name="title" />
+              <input type="text" id="title" name="title" required />
             </div>
             <div class="label_wrapper">
               <label for="icon">Project Icon</label>
@@ -79,8 +83,8 @@
             </div>
           </div>
           <div class="form_footer">
-            <button class="form_cancel">Cancel</button>
-            <button type="submit" class="form_submit">Add</button>
+            <button type="button" class="project_form_cancel">Cancel</button>
+            <button type="submit" class="project_form_submit">Add</button>
           </div>
         </form>
       </div>
@@ -88,7 +92,7 @@
 
     <div class="todo_wrapper hidden">
       <div class="todo_form">
-        <form action="#">
+        <form action="#" id="todo_form">
           <div class="form_header">
             <span>New Task</span>
             <i class="fa-solid fa-xmark"></i>
@@ -112,8 +116,8 @@
             </div>
           </div>
           <div class="form_footer">
-            <button class="form_cancel">Cancel</button>
-            <button type="submit" class="form_submit">Add</button>
+            <button type="button" class="task_form_cancel">Cancel</button>
+            <button type="submit" class="task_form_submit">Add</button>
           </div>
         </form>
       </div>
