@@ -9,7 +9,7 @@ export const projectList = document.querySelector(".project_list");
 export const projectModal = document.querySelector("project_wrapper");
 export const projectForm = document.querySelector("#project_form");
 export const projectTitle = document.querySelector("#title");
-// export const projectIcon = document.querySelector("");
+// export const projectIcon = document.querySelector("input[name="icons"]:checked");
 export const cancelProjectModal = document.querySelector(".project_form_cancel");
 export const closeProjectModal = document.querySelector("#project_form .fa-xmark");
 
@@ -21,3 +21,5 @@ export const taskDueDate = document.querySelector("#date");
 export const cancelTaskModal = document.querySelector(".task_form_cancel");
 export const closeTaskModal = document.querySelector("#todo_form .fa-xmark");
 
+
+    

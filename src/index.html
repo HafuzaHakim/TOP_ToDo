@@ -39,11 +39,37 @@
           <h2>Project</h2>
           <button class="add_project">+</button>
         </div>
-        <ul class="project_list"></ul>
+        <ul class="project_list">
+          <li class="project_name">Project 1</li>
+          <li class="project_name">Project 1</li>
+          <li class="project_name">Project 1</li>
+        </ul>
       </div>
     </aside>
 
-    <main></main>
+    <main>
+      <div class="main_header">
+        <h3 class="main_title">Project Name</h3>
+      </div>
+
+      <ul class="task_tree">
+        <li class="task_item">
+          <i class="fa-regular fa-square uncheck"></i>
+          <p class="task_content">This is a Todo item</p>
+          <span class="date">23-Sept-2024</span>
+          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-trash"></i>
+        </li>
+
+        <li class="task_item completed">
+          <i class="fa-regular fa-square-check check"></i>
+          <p class="task_content">This is a Todo item</p>
+          <span class="date">23-Sept-2024</span>
+          <i class="fa-solid fa-pen-to-square"></i>
+          <i class="fa-solid fa-trash"></i>
+        </li>
+      </ul>
+    </main>
 
     <footer>
       <p>Built By Hafuza Hakim</p>
@@ -63,22 +89,58 @@
             </div>
             <div class="label_wrapper">
               <label for="icon">Project Icon</label>
-              <div class="icon_choices">
-                <div class="icon_wrapper">
+              <div class="icon_wrapper">
+                <input
+                  id="briefcase"
+                  type="radio"
+                  name="icons"
+                  value="fa-solid fa-briefcase"
+                  checked
+                  required
+                />
+                <label for="briefcase">
                   <i class="fa-solid fa-briefcase"></i>
-                </div>
-                <div class="icon_wrapper">
+                </label>
+
+                <input
+                  id="dumbell"
+                  type="radio"
+                  name="icons"
+                  value="fa-solid fa-dumbbell"
+                />
+                <label for="dumbell">
                   <i class="fa-solid fa-dumbbell"></i>
-                </div>
-                <div class="icon_wrapper">
+                </label>
+
+                <input
+                  id="seedling"
+                  type="radio"
+                  name="icons"
+                  value="fa-solid fa-seedling"
+                />
+                <label for="seedling">
                   <i class="fa-solid fa-seedling"></i>
-                </div>
-                <div class="icon_wrapper">
+                </label>
+
+                <input
+                  id="car"
+                  type="radio"
+                  name="icons"
+                  value="fa-solid fa-car-side"
+                />
+                <label for="car">
                   <i class="fa-solid fa-car-side"></i>
-                </div>
-                <div class="icon_wrapper">
+                </label>
+
+                <input
+                  id="pen"
+                  type="radio"
+                  name="icons"
+                  value="fa-solid fa-pen"
+                />
+                <label for="pen">
                   <i class="fa-solid fa-pen"></i>
-                </div>
+                </label>
               </div>
             </div>
           </div>

@@ -207,29 +207,25 @@ footer {
   color: red;
 }
 
-.form_main .icon_wrapper {
-  background-color: #e6e7e5;
-  padding: 0.4rem;
-  width: 50px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.form_main .icon_wrapper:hover {
-  border: 2px solid black;
-}
-
-.form_main .icon_wrapper > i {
-  font-size: 1.3rem;
+.form_main .icon_wrapper i {
+  font-size: 1.8rem;
   color: #50514f;
 }
 
-.icon_choices {
-  display: flex;
-  justify-content: space-between;
+.icon_wrapper i:hover {
+  color: #02885b;
+}
+
+.icon_wrapper label::after {
+  content: "";
+}
+
+input[type="radio"] {
+  opacity: 0;
+}
+
+input[type="radio"]:checked + label > i {
+  color: #02885b;
 }
 
 .form_footer {
@@ -250,20 +246,95 @@ footer {
   padding: 0.4rem 1rem;
 }
 
-.form_footer button.form_cancel {
+.form_footer button.project_form_cancel,
+button.task_form_cancel {
   background-color: #f64740;
 }
 
-.form_footer button.form_cancel:active {
+.form_footer button.project_form_cancel:active,
+button.task_form_cancel:active {
   background-color: #bd221d;
 }
 
-.form_footer button.form_submit {
+.form_footer button.project_form_submit,
+button.task_form_submit {
   background-color: #05a972;
 }
 
-.form_footer button.form_submit:active {
+.form_footer button.project_form_submit:active,
+button.task_form_submit:active {
   background-color: #02885b;
+}
+
+.task_tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.task_item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.4rem;
+
+  background-color: #eceaeaaf;
+  border-radius: 10px;
+}
+
+.task_item:hover {
+  cursor: pointer;
+  background-color: #eceaeae8;
+}
+
+.check,
+.uncheck {
+  color: #05a972;
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+
+.task_content {
+  color: #000000;
+  font-size: 1.125rem;
+  font-weight: 350;
+}
+
+.completed .task_content {
+  text-decoration: line-through;
+  color: #50514f;
+}
+
+.date {
+  color: #ffffff;
+  background-color: #2bc496;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.task_item .fa-pen-to-square {
+  color: #eecf21;
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.task_item .fa-trash {
+  color: #f53e3e;
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.task_item .fa-pen-to-square:hover,
+.fa-square-check:hover,
+.fa-square:hover,
+.fa-trash:hover {
+  background-color: #ffffff;
 }
 
 .hidden {
