@@ -4,7 +4,6 @@ import { Group } from "./modules/group";
 import { Projects } from "./modules/project";
 import { Tasks } from "./modules/task";
 import {
-  dataField,
   all,
   important,
   completed,
@@ -14,40 +13,93 @@ import {
   projectModal,
   projectForm,
   projectTitle,
+  projectIcon,
   cancelProjectModal,
   closeProjectModal,
+  taskHeader,
+  taskTree,
   taskModal,
   taskForm,
   taskName,
-  taskPriority,
-  taskDueDate,
   cancelTaskModal,
   closeTaskModal,
 } from "./modules/dom";
+import {
+  createProjectUI,
+  createTaskHeader,
+  createTaskUI,
+  clearUI,
+  render,
+} from "./modules/ui";
 
 const data = new Group();
+let activeProject;
 
-const proj1 = {
-  id: generateID(),
-  title: "Project One",
-  icon: "https://kit.fontawesome.com/7a916139ac.js",
-};
+addProjectBtn.addEventListener("click", () => {
+  projectModal.classList.remove("hidden");
+});
 
-const proj2 = {
-  id: generateID(),
-  title: "Project Two",
-  icon: "https://kit.fontawesome.com/7a916139ac.js",
-};
+closeProjectModal.addEventListener("click", () => {
+  projectModal.classList.add("hidden");
+});
 
-const tsk = {
-  id: generateID(),
-  name: "Task",
-  priority: "Low",
-  dueDate: "Date",
-  status: "incomplete",
-};
+cancelProjectModal.addEventListener("click", () => {
+  projectModal.classList.add("hidden");
+});
 
-data.createProject(proj1);
-data.createProject(proj2);
+projectForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-console.log(data);
+  const checkedIcon = document.querySelector('input[name="icons"]:checked');
+  const iconValue = checkedIcon.value || null;
+
+  const newProject = {
+    id: generateID(),
+    title: projectTitle.value,
+    icon: iconValue.split(" "),
+  };
+
+  data.createProject(newProject);
+  activeProject = data.getProjectById(newProject.id);
+
+  render(data, activeProject);
+
+  projectForm.reset();
+  projectModal.classList.add("hidden");
+
+  console.log(activeProject);
+});
+
+closeTaskModal.addEventListener("click", () => {
+  taskModal.classList.add("hidden");
+});
+
+cancelTaskModal.addEventListener("click", () => {
+  taskModal.classList.add("hidden");
+});
+
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  taskTree.innerHTML = "";
+
+  const getPriority = document.querySelector("#priority");
+  let prio = getPriority.value || null;
+
+  const getDate = document.querySelector("#date");
+  const taskDate = getDate.value || null;
+
+  const newTask = {
+    id: generateID(),
+    name: taskName.value,
+    priority: prio,
+    dueDate: taskDate,
+    status: "incomlpete",
+  };
+
+  activeProject.createTask(newTask);
+
+  render(data, activeProject);
+
+  taskForm.reset();
+  taskModal.classList.add("hidden");
+});

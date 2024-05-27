@@ -5,6 +5,10 @@ export class Group {
     this.projects = [];
   }
 
+  getProjectById(id) {
+    return this.projects.find((project) => project.id === id);
+  }
+
   createProject(data) {
     this.projects.push(new Projects(data));
   }
