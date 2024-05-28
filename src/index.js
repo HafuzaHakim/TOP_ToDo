@@ -1,5 +1,10 @@
 import "../src/style.css";
-import { generateID } from "./modules/util";
+import {
+  generateID,
+  loadData,
+  storeData,
+  loadActiveProject,
+} from "./modules/util";
 import { Group } from "./modules/group";
 import { Projects } from "./modules/project";
 import { Tasks } from "./modules/task";
@@ -32,8 +37,12 @@ import {
   render,
 } from "./modules/ui";
 
-const data = new Group();
-let activeProject;
+const data = loadData() || new Group();
+let activeProject = loadActiveProject() || null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  render(data, activeProject);
+});
 
 addProjectBtn.addEventListener("click", () => {
   projectModal.classList.remove("hidden");
@@ -62,12 +71,12 @@ projectForm.addEventListener("submit", (e) => {
   data.createProject(newProject);
   activeProject = data.getProjectById(newProject.id);
 
+  storeData(data, activeProject);
+
   render(data, activeProject);
 
   projectForm.reset();
   projectModal.classList.add("hidden");
-
-  console.log(activeProject);
 });
 
 closeTaskModal.addEventListener("click", () => {
@@ -97,9 +106,13 @@ taskForm.addEventListener("submit", (e) => {
   };
 
   activeProject.createTask(newTask);
+  storeData(data, activeProject);
 
   render(data, activeProject);
 
   taskForm.reset();
   taskModal.classList.add("hidden");
 });
+
+console.log(data);
+console.log(localStorage);

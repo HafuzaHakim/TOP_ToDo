@@ -37,10 +37,16 @@ export function createProjectUI(project) {
   pText.textContent = project.title;
 
   const editIcon = document.createElement("i");
-  //   editIcon.classList.add("fa-solid fa-pen-to-square");
+  const editClass = ["fa-solid", "fa-pen-to-square"];
+  editClass.forEach((classes) => {
+    editIcon.classList.add(classes);
+  });
 
   const deleteIcon = document.createElement("i");
-  //   deleteIcon.classList.add("fa-solid fa-trash");
+  const deleteClass = ["fa-solid", "fa-trash"];
+  deleteClass.forEach((classes) => {
+    deleteIcon.classList.add(classes);
+  });
 
   li.appendChild(projectIcon);
   li.appendChild(pText);
