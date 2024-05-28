@@ -34,7 +34,6 @@ import {
   createTaskHeader,
   createTaskUI,
   clearUI,
-  render,
 } from "./modules/ui";
 
 const data = loadData() || new Group();
@@ -113,6 +112,51 @@ taskForm.addEventListener("submit", (e) => {
   taskForm.reset();
   taskModal.classList.add("hidden");
 });
+
+function render(main, submain) {
+  clearUI();
+  main.projects.forEach((proj) => {
+    createProjectUI(proj);
+  });
+
+  if (!submain) {
+    return;
+  } else {
+    createTaskHeader(submain.title);
+
+    submain.tasks.forEach((task) => {
+      createTaskUI(task);
+    });
+  }
+
+  const projectNodes = document.querySelectorAll(".project_item");
+  projectNodes.forEach((node) => {
+    node.addEventListener("click", (e) => {
+      activeProject = data.getProjectById(node.id);
+      storeData(data, activeProject);
+      render(data, activeProject);
+    });
+  });
+
+  const deleteProjectNodes = document.querySelectorAll(
+    ".project_item .fa-trash"
+  );
+  deleteProjectNodes.forEach((node) => {
+    node.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const target = node.parentElement;
+      if (target.parentElement.children.length > 1) {
+        activeProject =
+          data.getProjectById(target.previousElementSibling.id) || null;
+      } else {
+        activeProject = null;
+      }
+      data.deleteProject(target.id);
+      storeData(data, activeProject);
+      render(data, activeProject);
+    });
+  });
+}
 
 console.log(data);
 console.log(localStorage);

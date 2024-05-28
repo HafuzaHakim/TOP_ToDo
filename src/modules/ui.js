@@ -130,15 +130,3 @@ function createAddBtn() {
   taskHeader.appendChild(btn);
 }
 
-export function render(data, activeProject) {
-  clearUI();
-  data.projects.forEach((proj) => {
-    createProjectUI(proj);
-  });
-
-  createTaskHeader(activeProject.title);
-
-  activeProject.tasks.forEach((task) => {
-    createTaskUI(task);
-  });
-}

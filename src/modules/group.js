@@ -13,10 +13,10 @@ export class Group {
     this.projects.push(new Projects(data));
   }
 
-  deleteProject(e) {
-    const currentProject = this.projects;
-    this.projects = currentProject.filter((project) => {
-      return project.id !== e.id;
-    });
+  deleteProject(id) {
+    const filteredProject = this.projects.filter(
+      (project) => project.id !== id
+    );
+    this.projects = filteredProject;
   }
 }

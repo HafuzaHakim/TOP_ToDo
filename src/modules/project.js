@@ -8,14 +8,16 @@ export class Projects {
     this.tasks = [];
   }
 
+  getTaskById(id) {
+    return this.tasks.find((task) => task.id === id);
+  }
+
   createTask(data) {
     this.tasks.push(new Tasks(data));
   }
 
-  deleteTask(e) {
-    const currentTask = this.tasks;
-    this.tasks = currentTask.filter((task) => {
-      return task.id !== e.id;
-    });
+  deleteTask(id) {
+    const filteredTask = this.tasks.filter((task) => task.id !== id);
+    this.tasks = filteredTask;
   }
 }
