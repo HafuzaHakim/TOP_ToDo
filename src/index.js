@@ -253,7 +253,6 @@ function render(main, submain) {
       e.stopPropagation();
       const targetNode = node.parentElement;
       const targetTask = activeProject.getTaskById(targetNode.id);
-      console.log(targetTask);
 
       const targetTitle = document.querySelector("#taskEdit");
       const targetPriority = document.querySelector("#priorityEdit");
@@ -278,4 +277,18 @@ function render(main, submain) {
       });
     });
   });
+
+  // Delete the task
+  const deleteTaskNodes = document.querySelectorAll(".task_item .fa-trash");
+  deleteTaskNodes.forEach((node) => {
+    node.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const targetNode = node.parentElement;
+      activeProject.deleteTask(targetNode.id);
+      storeData(data, activeProject);
+      render(data, activeProject);
+    });
+  });
 }
+
+console.log(data);

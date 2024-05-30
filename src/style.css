@@ -37,24 +37,6 @@ aside {
   gap: 2rem;
 }
 
-.filters ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.filters li {
-  list-style: none;
-  padding: 0.5rem;
-  font-size: 1.13rem;
-  font-weight: 300;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
 li:hover {
   background-color: white;
 }
