@@ -1,3 +1,4 @@
+
 export class Tasks {
   constructor(task) {
     this.id = task.id;
@@ -14,4 +15,5 @@ export class Tasks {
   incompleteTask() {
     this.status = "incomplete";
   }
+
 }

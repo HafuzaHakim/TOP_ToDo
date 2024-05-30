@@ -20,6 +20,4 @@ export class Projects {
     const filteredTask = this.tasks.filter((task) => task.id !== id);
     this.tasks = filteredTask;
   }
-
-  editTask(id) {}
 }

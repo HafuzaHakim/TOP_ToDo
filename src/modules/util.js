@@ -53,10 +53,11 @@ export function generateID() {
 
 export function loadData() {
   const storedData = localStorage.getItem("data");
-  if (!storedData) {
+  const plainData = JSON.parse(storedData);
+  if (!plainData) {
     return null;
   }
-  const plainData = JSON.parse(storedData);
+
   Object.setPrototypeOf(plainData, Group.prototype);
   plainData.projects.forEach((prj) => {
     Object.setPrototypeOf(prj, Projects.prototype);
@@ -71,11 +72,11 @@ export function loadData() {
 
 export function loadActiveProject() {
   const storedActive = localStorage.getItem("active");
-  if (!JSON.parse(storedActive)) {
-    console.log(storedActive);
+  const focusProject = JSON.parse(storedActive);
+  if (!focusProject) {
     return null;
   }
-  const focusProject = storedActive;
+
   Object.setPrototypeOf(focusProject, Projects.prototype);
   focusProject.tasks.forEach((tsk) => {
     Object.setPrototypeOf(tsk, Tasks.prototype);

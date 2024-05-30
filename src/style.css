@@ -342,7 +342,7 @@ button.task_form_submit:active,
   background-color: #eceaeae8;
 }
 
-.check,
+.fa-square-check,
 .uncheck {
   color: #05a972;
   font-size: 1.1rem;

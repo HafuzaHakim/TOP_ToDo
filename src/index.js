@@ -76,7 +76,8 @@ projectForm.addEventListener("submit", (e) => {
   activeProject = data.getProjectById(newProject.id);
 
   storeData(data, activeProject);
-
+  const temp = localStorage.getItem("data");
+  console.log(JSON.parse(temp));
   render(data, activeProject);
 
   projectForm.reset();
@@ -106,7 +107,7 @@ taskForm.addEventListener("submit", (e) => {
     name: taskName.value,
     priority: prio,
     dueDate: taskDate,
-    status: "incomlpete",
+    status: "incomplete",
   };
 
   activeProject.createTask(newTask);
@@ -167,10 +168,8 @@ function render(main, submain) {
       if (target === target.parentElement.firstElementChild) {
         if (target.nextElementSibling) {
           activeProject = data.getProjectById(target.nextElementSibling.id);
-          console.log(activeProject);
         } else {
           activeProject = null;
-          console.log(activeProject);
         }
       } else {
         if (target.previousElementSibling) {
@@ -219,7 +218,19 @@ function render(main, submain) {
       });
     });
   });
-}
 
-console.log(data);
-console.log(localStorage);
+  // Change the task status
+  const taskNodes = document.querySelectorAll(".task_item");
+  taskNodes.forEach((node) => {
+    node.addEventListener("click", () => {
+      const targetTask = activeProject.getTaskById(node.id);
+      if (targetTask.status === "incomplete") {
+        targetTask.completeTask();
+      } else if (targetTask.status === "complete") {
+        targetTask.incompleteTask();
+      }
+      storeData(data, activeProject);
+      render(data, activeProject);
+    });
+  });
+}

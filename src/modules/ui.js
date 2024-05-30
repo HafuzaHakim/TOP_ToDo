@@ -68,16 +68,19 @@ export function createTaskHeader(name) {
 export function createTaskUI(task) {
   const li = document.createElement("li");
   li.classList.add("task_item");
+  if (task.status === "complete") {
+    li.classList.add("completed");
+  }
   li.setAttribute("id", `${task.id}`);
 
   const boxIcon = document.createElement("i");
-  if (task.status === "complete") {
+  if (task.status === "incomplete") {
     const boxClass = ["fa-regular", "fa-square", "uncheck"];
     boxClass.forEach((classes) => {
       boxIcon.classList.add(classes);
     });
   } else {
-    const boxClass = ["fa-regular", "fa-square", "check"];
+    const boxClass = ["fa-regular", "fa-square-check"];
     boxClass.forEach((classes) => {
       boxIcon.classList.add(classes);
     });
@@ -129,4 +132,3 @@ function createAddBtn() {
 
   taskHeader.appendChild(btn);
 }
-

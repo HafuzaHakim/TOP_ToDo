@@ -19,6 +19,4 @@ export class Group {
     );
     this.projects = filteredProject;
   }
-
-  editProject(id) {}
 }
