@@ -37,3 +37,11 @@ export const cancelTaskModal = document.querySelector(".task_form_cancel");
 export const closeTaskModal = document.querySelector("#todo_form .fa-xmark");
 
 // Edit Task DOM
+export const editTaskModal = document.querySelector(".todoEdit_wrapper");
+export const editTaskForm = document.querySelector("#todoEdit_form");
+export const cancelEditTaskModal = document.querySelector(
+  ".taskEdit_form_cancel"
+);
+export const closeEditTaskModal = document.querySelector(
+  "#todoEdit_form .fa-xmark"
+);

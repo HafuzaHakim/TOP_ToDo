@@ -279,5 +279,38 @@
         </form>
       </div>
     </div>
+
+    <div class="todoEdit_wrapper hidden">
+      <div class="todoEdit_form">
+        <form action="#" id="todoEdit_form">
+          <div class="form_header">
+            <span>Edit Task</span>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="form_main">
+            <div class="label_wrapper">
+              <label for="taskEdit">Task Name</label>
+              <input type="text" id="taskEdit" name="task" required />
+            </div>
+            <div class="label_wrapper">
+              <label for="priorityEdit">Task Priority</label>
+              <select name="priority" id="priorityEdit" required>
+                <option value disabled selected>Select priority</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+            <div class="label_wrapper">
+              <label for="dateEdit">Due Date</label>
+              <input type="date" id="dateEdit" name="date" required />
+            </div>
+          </div>
+          <div class="form_footer">
+            <button type="button" class="taskEdit_form_cancel">Cancel</button>
+            <button type="submit" class="taskEdit_form_submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -33,6 +33,10 @@ import {
   editProjectTitle,
   editCancelProjectModal,
   editCloseProjectModal,
+  editTaskModal,
+  editTaskForm,
+  cancelEditTaskModal,
+  closeEditTaskModal,
 } from "./modules/dom";
 import {
   createProjectUI,
@@ -76,8 +80,6 @@ projectForm.addEventListener("submit", (e) => {
   activeProject = data.getProjectById(newProject.id);
 
   storeData(data, activeProject);
-  const temp = localStorage.getItem("data");
-  console.log(JSON.parse(temp));
   render(data, activeProject);
 
   projectForm.reset();
@@ -125,6 +127,14 @@ editCloseProjectModal.addEventListener("click", () => {
 
 editCancelProjectModal.addEventListener("click", () => {
   editProjectModal.classList.add("hidden");
+});
+
+cancelEditTaskModal.addEventListener("click", () => {
+  editTaskModal.classList.add("hidden");
+});
+
+closeEditTaskModal.addEventListener("click", () => {
+  editTaskModal.classList.add("hidden");
 });
 
 function render(main, submain) {
@@ -231,6 +241,41 @@ function render(main, submain) {
       }
       storeData(data, activeProject);
       render(data, activeProject);
+    });
+  });
+
+  // Update the task
+  const editTaskNodes = document.querySelectorAll(
+    ".task_item .fa-pen-to-square"
+  );
+  editTaskNodes.forEach((node) => {
+    node.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const targetNode = node.parentElement;
+      const targetTask = activeProject.getTaskById(targetNode.id);
+      console.log(targetTask);
+
+      const targetTitle = document.querySelector("#taskEdit");
+      const targetPriority = document.querySelector("#priorityEdit");
+      const targetDate = document.querySelector("#dateEdit");
+
+      targetTitle.value = targetTask.name;
+      targetPriority.value = targetTask.priority;
+      targetDate.value = targetTask.dueDate;
+
+      editTaskModal.classList.remove("hidden");
+
+      editTaskForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        targetTask.name = document.querySelector("#taskEdit").value;
+        targetTask.priority = document.querySelector("#priorityEdit").value;
+        targetTask.dueDate = document.querySelector("#dateEdit").value;
+
+        editTaskModal.classList.add("hidden");
+        storeData(data, activeProject);
+        render(data, activeProject);
+      });
     });
   });
 }
