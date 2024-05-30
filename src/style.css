@@ -131,6 +131,7 @@ footer {
 }
 
 .project_wrapper,
+.projectEdit_wrapper,
 .todo_wrapper {
   position: absolute;
   top: 0;
@@ -144,6 +145,7 @@ footer {
 }
 
 .project_form,
+.projectEdit_form,
 .todo_form {
   position: absolute;
   width: 20rem;
@@ -247,22 +249,26 @@ input[type="radio"]:checked + label > i {
 }
 
 .form_footer button.project_form_cancel,
-button.task_form_cancel {
+button.task_form_cancel,
+.edit_project_form_cancel {
   background-color: #f64740;
 }
 
 .form_footer button.project_form_cancel:active,
-button.task_form_cancel:active {
+button.task_form_cancel:active,
+.edit_project_form_cancel:active {
   background-color: #bd221d;
 }
 
 .form_footer button.project_form_submit,
-button.task_form_submit {
+button.task_form_submit,
+.edit_project_form_submit {
   background-color: #05a972;
 }
 
 .form_footer button.project_form_submit:active,
-button.task_form_submit:active {
+button.task_form_submit:active,
+.edit_project_form_submit:active {
   background-color: #02885b;
 }
 

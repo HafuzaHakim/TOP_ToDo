@@ -71,16 +71,15 @@ export function loadData() {
 
 export function loadActiveProject() {
   const storedActive = localStorage.getItem("active");
-  if (!storedActive) {
+  if (!JSON.parse(storedActive)) {
+    console.log(storedActive);
     return null;
   }
-
-  const focusProject = JSON.parse(storedActive);
+  const focusProject = storedActive;
   Object.setPrototypeOf(focusProject, Projects.prototype);
   focusProject.tasks.forEach((tsk) => {
     Object.setPrototypeOf(tsk, Tasks.prototype);
   });
-
   return focusProject;
 }
 

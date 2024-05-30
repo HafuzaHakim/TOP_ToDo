@@ -169,6 +169,84 @@
       </div>
     </div>
 
+    <div class="projectEdit_wrapper hidden">
+      <div class="projectEdit_form">
+        <form action="#" id="projectEdit_form">
+          <div class="form_header">
+            <span>Edit Project</span>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="form_main">
+            <div class="label_wrapper">
+              <label for="title">Project Title</label>
+              <input type="text" id="title_edit" name="title" required />
+            </div>
+            <div class="label_wrapper">
+              <label for="icon">Project Icon</label>
+              <div class="icon_wrapper">
+                <input
+                  id="briefcaseEdit"
+                  type="radio"
+                  name="icons_edit"
+                  value="fa-solid fa-briefcase"
+                  required
+                />
+                <label for="briefcaseEdit">
+                  <i class="fa-solid fa-briefcase"></i>
+                </label>
+
+                <input
+                  id="dumbellEdit"
+                  type="radio"
+                  name="icons_edit"
+                  value="fa-solid fa-dumbbell"
+                />
+                <label for="dumbellEdit">
+                  <i class="fa-solid fa-dumbbell"></i>
+                </label>
+
+                <input
+                  id="seedlingEdit"
+                  type="radio"
+                  name="icons_edit"
+                  value="fa-solid fa-seedling"
+                />
+                <label for="seedlingEdit">
+                  <i class="fa-solid fa-seedling"></i>
+                </label>
+
+                <input
+                  id="carEdit"
+                  type="radio"
+                  name="icons_edit"
+                  value="fa-solid fa-car-side"
+                />
+                <label for="carEdit">
+                  <i class="fa-solid fa-car-side"></i>
+                </label>
+
+                <input
+                  id="penEdit"
+                  type="radio"
+                  name="icons_edit"
+                  value="fa-solid fa-pen"
+                />
+                <label for="penEdit">
+                  <i class="fa-solid fa-pen"></i>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form_footer">
+            <button type="button" class="edit_project_form_cancel">
+              Cancel
+            </button>
+            <button type="submit" class="edit_project_form_submit">Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <div class="todo_wrapper hidden">
       <div class="todo_form">
         <form action="#" id="todo_form">
